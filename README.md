@@ -36,7 +36,7 @@ openssl pkcs12 -in CERTIFICATE_FILE.pfx -clcerts -nokeys -out certfile.crt
 
 - Goto root directory. 
 - Create `root/certs` directory and copy the *.crt* and *.key*  files into the directory.
-- Run the docker registry server container with certificate files. *(If the docker registry image is not installed, it will be pull automatically.)*
+- Deploy the docker registry server container with certificate files. *(If the docker registry image is not installed, it will be pull automatically.)*
 
 ```bash
 docker run -d \
@@ -49,6 +49,8 @@ docker run -d \
   -p 443:443 \
   registry:2
 ```
+
+[Deploy your registry using a Compose file.](https://github.com/barisates/docker-registry-server/blob/master/docker-compose.yml "Deploy your registry using a Compose file.")
 
 #### Fixing Certificate Issue
 

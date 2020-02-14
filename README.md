@@ -1,5 +1,5 @@
 # docker-registry-server
-Setup docker registry server, where you can storing and distributing docker images on your local network.
+Deploy a docker registry server, where you can storing and distributing docker images on your local network.
 
 #### Test Environment
 

@@ -1,0 +1,12 @@
+registry:
+  restart: always
+  image: registry:2
+  ports:
+    - 443:443
+  environment:
+    REGISTRY_HTTP_ADDR: 0.0.0.0:443
+    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/certfile.crt
+    REGISTRY_HTTP_TLS_KEY: /certs/keyfile.key
+  volumes:
+    - ./certs:/certs
+    - ./registry/config.yml:/etc/docker/registry/config.yml

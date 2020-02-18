@@ -1,8 +1,12 @@
-docker-registry-ui:
-    restart: always
-    image: joxit/docker-registry-ui:static
-    ports:
-        - 80:80
-    environment:
-        - URL: https://127.0.0.1
-        - DELETE_IMAGES: true
+version: "3"
+
+services:
+  registry-ui:
+      restart: always
+      container_name: registry-ui
+      image: joxit/docker-registry-ui:static
+      ports:
+          - 80:80
+      environment:
+          - URL: https://127.0.0.1
+          - DELETE_IMAGES: true

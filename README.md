@@ -1,17 +1,17 @@
 # docker-registry-server
 Deploy a Docker Trusted Registry (DTR) server, where you can storing and distributing docker images on your local network.
 
-#### Test Environment
+### Test Environment
 
 - CentOS Linux release 8.1.1911 (Core)
 - Docker 19.03.5
 
-#### Tools & Images
+### Tools & Images
 
 - [OpenSSL v1.1.1d Win64 Light](https://slproweb.com/products/Win32OpenSSL.html "OpenSSL v1.1.1d Win64 Light")
 - [Docker Trusted Registry 2.0](https://hub.docker.com/_/registry "Docker Trusted Registry 2.0")
 
-#### SSL Certificate
+### SSL Certificate
 
 Docker Trusted Registry (DTR) requests the certificate file as *.crt*  and *.key*. My certificate is *.pfx*  file. First, using OpenSSL, I extract *.key*  and *.crt*  from my certificate with *.pfx*  extension. *(Certificate extraction was done on Windows 10 operating system.)*
 
@@ -32,7 +32,7 @@ openssl rsa -in keyfile-encrypted.key -out keyfile.key
 openssl pkcs12 -in CERTIFICATE_FILE.pfx -clcerts -nokeys -out certfile.crt
 ```
 
-#### Docker Trusted Registry (DTR) Server
+### Docker Trusted Registry (DTR) Server
 
 - Goto root directory.
 - Create `root/certs` directory and copy the *.crt* and *.key*  files into the directory.
@@ -73,7 +73,7 @@ This example should be like this;
 `/etc/docker/certs.d/registry.yourdomain.com/certfile.crt`
 
 
-#### Docker Trusted Registry (DTR) User Interface
+### Docker Trusted Registry (DTR) User Interface
 
 We use [Docker Registry UI](https://github.com/Joxit/docker-registry-ui "Docker Registry UI") to manage our images on our DTR server through a user interface.
 

@@ -14,3 +14,4 @@ services:
     volumes:
       - ./certs:/certs
       - ./registry/config.yml:/etc/docker/registry/config.yml
+      - ./registry/lib:/var/lib/registry

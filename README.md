@@ -53,6 +53,7 @@ docker run -d \
   --name registry \
   -v "$(pwd)"/certs:/certs \
   -v "$(pwd)"/registry/config.yml:/etc/docker/registry/config.yml \
+  -v "$(pwd)"/registry/lib:/var/lib/registry \
   -e REGISTRY_HTTP_ADDR=0.0.0.0:443 \
   -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/certfile.crt \
   -e REGISTRY_HTTP_TLS_KEY=/certs/keyfile.key \

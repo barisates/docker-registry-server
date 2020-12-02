@@ -45,6 +45,16 @@ openssl pkcs12 -in CERTIFICATE_FILE.pfx -clcerts -nokeys -out certfile.crt
     Access-Control-Expose-Headers: ['Docker-Content-Digest']
 ```
 
+##### Restricting Access
+- Create a folder named `root/auth`.
+- Create a password file with following command.
+
+```yaml
+docker run \
+  --entrypoint htpasswd \
+  registry:2 -Bbn testuser testpassword > auth/htpasswd
+```
+
 - Deploy the DTR server container with certificate files and new configuration. *(If the docker registry image is not installed, it will be pull automatically.)*
 
 ```bash
@@ -52,6 +62,7 @@ docker run -d \
   --restart=always \
   --name registry \
   -v "$(pwd)"/certs:/certs \
+  -v "$(pwd)"/auth:/auth \
   -v "$(pwd)"/registry/config.yml:/etc/docker/registry/config.yml \
   -v "$(pwd)"/registry/lib:/var/lib/registry \
   -e REGISTRY_HTTP_ADDR=0.0.0.0:443 \

@@ -72,6 +72,12 @@ docker run -d \
   registry:2
 ```
 
+- Login registry server.
+
+```bash
+docker login myregistrydomain.com
+```
+
 #### Fixing Certificate Issue
 
 After completing the installation, you may get an error as follows during docker pull and push operations; ***Error response from daemon: Get https://registry.yourdomain.com/v2/: x509: certificate signed by unknown authority***
